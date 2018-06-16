@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     transition: background-color .50s;
+    padding-left: .50rem;
     /*border-bottom: 1px solid rgba(256, 256, 256, 0.8); */
   }
 

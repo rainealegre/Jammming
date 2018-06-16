@@ -38,9 +38,7 @@ class Track extends React.Component {
     render() {
         return(
             <div className="Track">
-                <div className="Track-controls">
-                    <img src="./play.png" />
-                </div>
+                <img src={require('./defaultIco.png')} onMouseOver={e => (e.currentTarget.src = require("./playIcon.png"))} />
                 <div className="Track-information">
                     <h3>{this.props.track.name}</h3>
                     <p>{this.props.track.artist} | {this.props.track.album}</p>
