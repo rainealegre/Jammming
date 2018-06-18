@@ -4,12 +4,12 @@ import './Track.css';
 class Track extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {isPlaying: false};
         this.addTrack = this.addTrack.bind(this);
         this.removeTrack = this.removeTrack.bind(this);
         this.renderAction = this.renderAction.bind(this);
         this.renderPlay = this.renderPlay.bind(this);
-        this.toggleButton = this.toggleButton.bind(this);
+        this.playTrack = this.playTrack.bind(this);
+        this.pauseTrack = this.pauseTrack.bind(this);
     }
 
     renderAction() {
@@ -38,20 +38,28 @@ class Track extends React.Component {
         this.props.onRemove(this.props.track);
     }
 
-    toggleButton() {
-        this.state.isPlaying ? this.setState({isPlaying: false}) : this.setState({isPlaying: true});
+    playTrack() {
+        this.props.onPlay(this.props.track.previewTrack);
+    }
+
+    pauseTrack() {
+        this.props.onPause(this.props.track.previewTrack);
     }
 
     renderPlay() {
-        return (
-            <button onClick={this.toggleButton}>
-                {
-                    this.state.isPlaying ?
-                        <img src={require('./pauseButton.png')} />
-                    :   <img src={require('./playButton.png')} />
-                }
-            </button>
-        )
+        if (this.props.isPlaying && this.props.shouldPlay === this.props.track.previewTrack) {
+            return(
+                <button onClick={this.pauseTrack}>
+                    <img src={require('./pauseButton.png')} />
+                </button>
+            )
+        } else {
+            return (
+                <button onClick={this.playTrack}>
+                    <img src={require('./playButton.png')} />
+                </button>
+            )
+        }
     }
 
     render() {

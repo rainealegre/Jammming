@@ -41,13 +41,15 @@ const Spotify = {
             .then(response => response.json())
             .then(jsonResponse => {
                 if (jsonResponse.tracks) {
+                    //console.log(jsonResponse.tracks);
                     return jsonResponse.tracks.items.map(function(track) {
                         return {
                             id: track.id,
                             name: track.name,
                             uri: track.uri,
                             album: track.album.name,
-                            artist: track.artists[0].name
+                            artist: track.artists[0].name,
+                            previewTrack: track.preview_url
                         }}
                     )}
                 else {
@@ -75,7 +77,7 @@ const Spotify = {
             method:'POST', body: jsonBody})
             .then(response => this.handleResponse(response))
             .then(jsonResponse => {
-                console.log("playlist successful created.");
+                console.log("playlist successfully created.");
                 let playlistId = jsonResponse.id;
                 return this.saveTracksToPlaylist(userId, playlistId, playlistTracks);
             });
