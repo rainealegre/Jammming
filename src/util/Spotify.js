@@ -8,7 +8,7 @@ const spotifyPlaylistTracksAPI = 'https://api.spotify.com/v1/users/${userId}/pla
 //const redirectUrl = 'https://jammmingwithspotify.firebaseapp.com/';
 
 /* surge url */
-const redirectUrl = 'http://jammmingwithspotify.surge.sh/';
+const redirectUrl = 'jammmingwithspotify.surge.sh';
 
 let accessToken;
 let expiresIn;
