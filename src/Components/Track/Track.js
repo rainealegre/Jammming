@@ -38,6 +38,7 @@ class Track extends React.Component {
         this.props.onRemove(this.props.track);
     }
 
+    /* audio controls */
     playTrack() {
         this.props.onPlay(this.props.track.previewTrack);
     }
@@ -46,6 +47,7 @@ class Track extends React.Component {
         this.props.onPause(this.props.track.previewTrack);
     }
 
+    /* displays play/pause buttons */
     renderPlay() {
         if (this.props.isPlaying && this.props.shouldPlay === this.props.track.previewTrack) {
             return(
